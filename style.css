@@ -1,0 +1,50 @@
+body {
+    margin: 0; background-color: #050505;
+    display: flex; justify-content: center; align-items: center;
+    height: 100vh; font-family: 'Segoe UI', Arial, sans-serif;
+    overflow: hidden; user-select: none;
+}
+#game-container {
+    position: relative; width: 1280px; height: 640px;
+    box-shadow: 0 0 100px rgba(0, 150, 255, 0.15);
+    border: 4px solid #333; background-color: #000;
+}
+canvas { display: block; width: 100%; height: 100%; }
+
+/* --- HUD --- */
+#hud { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+.top-bar { display: flex; flex-direction: column; align-items: center; padding-top: 15px; }
+
+.progress-wrapper { display: flex; align-items: center; gap: 10px; }
+#progress-container {
+    width: 500px; height: 10px; background: rgba(0,0,0,0.8);
+    border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; overflow: hidden;
+}
+#progress-fill { width: 0%; height: 100%; background: #00ff40; box-shadow: 0 0 10px #00ff40; }
+#percent-text { color: white; font-weight: bold; font-size: 14px; text-shadow: 1px 1px 2px #000; }
+
+#attempt-display { 
+    color: white; font-weight: bold; font-size: 32px; 
+    text-shadow: 2px 2px #000; margin-top: 10px;
+}
+#mode-info { position: absolute; bottom: 20px; left: 20px; color: rgba(255,255,255,0.4); font-weight: bold; }
+
+/* --- MENU --- */
+#main-menu {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.9), rgba(0,10,30,0.9));
+    display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100;
+}
+.level-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+.lvl-btn {
+    background: #151515; border: 2px solid #444; color: white; padding: 20px;
+    width: 350px; cursor: pointer; border-radius: 8px; transition: 0.2s;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.lvl-btn:hover { border-color: #00ffff; transform: scale(1.03); background: #1a1a1a; }
+
+#crash-flash {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: white; opacity: 0; pointer-events: none; z-index: 1000;
+}
+.flash-active { opacity: 0.8 !important; transition: none !important; }
